@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/head') %>
+    </head>
+    <body>
+        <div class="container">
+            <%- include('partials/navbar') %>
+            <div class="date">
+                <h1>Please select the date you would like to play</h1>
+                <label for="date-picker">Date to play:</label>
+                <input type="date" id="date-picker" name="date-picker" />
+                <button onclick="next()">Next</button>
+            </div>
+            <%- include('partials/footer') %>
+        </div>
+        <script>
+            function next() {
+                const element = document.getElementById('date-picker');
+                const rawDate = element.value;
+                window.location = `/time?date=${rawDate}`;
+            }
+        </script>
+    </body>
+</html>

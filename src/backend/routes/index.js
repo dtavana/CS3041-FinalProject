@@ -1,9 +1,11 @@
 import express from 'express';
-import viewController from '../controllers/view.controller';
+import { home, date, time } from '../controllers/view.controller';
 import api from './api';
 
 const router = express.Router();
 router.use('/api', api);
-router.use('/', viewController);
+router.use('/home', home);
+router.use('/date', date);
+router.use('/time', time);
 
 export default router;

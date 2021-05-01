@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/head') %>
+        <script>
+            const timeMap = {};
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <%- include('partials/navbar') %>
+            <div class="time">
+                <h1>Please select the times that you are available to play</h1>
+                <div class="timeContainer">
+                    <div style="font-size: 15px; vertical-align: top">
+                        <div
+                            id="Time0900"
+                            data-col="0"
+                            data-row="0"
+                            data-time="0900"
+                            onclick="timeOnClick('0900')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        >
+                            9AM
+                        </div>
+                        <div
+                            id="Time0930"
+                            data-col="0"
+                            data-row="1"
+                            data-time="0930"
+                            onclick="timeOnClick('0930')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        ></div>
+                        <div
+                            id="Time1000"
+                            data-col="0"
+                            data-row="2"
+                            data-time="1000"
+                            onclick="timeOnClick('1000')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        >
+                            10AM
+                        </div>
+                        <div
+                            id="Time1030"
+                            data-col="0"
+                            data-row="3"
+                            data-time="1030"
+                            onclick="timeOnClick('1030')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        ></div>
+                        <div
+                            id="Time1100"
+                            data-col="0"
+                            data-row="4"
+                            data-time="1100"
+                            onclick="timeOnClick('1100')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        >
+                            11AM
+                        </div>
+                        <div
+                            id="Time1130"
+                            data-col="0"
+                            data-row="5"
+                            data-time="1130"
+                            onclick="timeOnClick('1130')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        ></div>
+                        <div
+                            id="Time1200"
+                            data-col="0"
+                            data-row="6"
+                            data-time="1200"
+                            onclick="timeOnClick('1200')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        >
+                            12PM
+                        </div>
+                        <div
+                            id="Time1230"
+                            data-col="0"
+                            data-row="7"
+                            data-time="1230"
+                            onclick="timeOnClick('1230')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        ></div>
+                        <div
+                            id="Time1300"
+                            data-col="0"
+                            data-row="8"
+                            data-time="1300"
+                            onclick="timeOnClick('1300')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        >
+                            1PM
+                        </div>
+                        <div
+                            id="Time1330"
+                            data-col="0"
+                            data-row="9"
+                            data-time="1330"
+                            onclick="timeOnClick('1330')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        ></div>
+                        <div
+                            id="Time1400"
+                            data-col="0"
+                            data-row="10"
+                            data-time="1400"
+                            onclick="timeOnClick('1400')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        >
+                            2PM
+                        </div>
+                        <div
+                            id="Time1430"
+                            data-col="0"
+                            data-row="11"
+                            data-time="1430"
+                            onclick="timeOnClick('1430')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        ></div>
+                        <div
+                            id="Time1500"
+                            data-col="0"
+                            data-row="12"
+                            data-time="1500"
+                            onclick="timeOnClick('1500')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        >
+                            3PM
+                        </div>
+                        <div
+                            id="Time1530"
+                            data-col="0"
+                            data-row="13"
+                            data-time="1530"
+                            onclick="timeOnClick('1530')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        ></div>
+                        <div
+                            id="Time1600"
+                            data-col="0"
+                            data-row="14"
+                            data-time="1600"
+                            onclick="timeOnClick('1600')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        >
+                            4PM
+                        </div>
+                        <div
+                            id="Time1630"
+                            data-col="0"
+                            data-row="15"
+                            data-time="1630"
+                            onclick="timeOnClick('1630')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        ></div>
+                        <div
+                            id="Time1700"
+                            data-col="0"
+                            data-row="16"
+                            data-time="1700"
+                            onclick="timeOnClick('1700')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        >
+                            5PM
+                        </div>
+                        <div
+                            id="Time1730"
+                            data-col="0"
+                            data-row="17"
+                            data-time="1730"
+                            onclick="timeOnClick('1730')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        ></div>
+                        <div
+                            id="Time1800"
+                            data-col="0"
+                            data-row="18"
+                            data-time="1800"
+                            onclick="timeOnClick('1800')"
+                            style="
+                                vertical-align: top;
+                                display: inline-block;
+                                *display: inline;
+                                zoom: 1;
+                                width: 44px;
+                                height: 25px;
+                                font-size: 15px;
+                                border-left: 1px black solid;
+                                background: #808080;
+                                border-right: 1px black solid;
+                            "
+                        >
+                            6PM
+                        </div>
+                    </div>
+                </div>
+                <button onclick="next()">Next</button>
+            </div>
+            <%- include('partials/footer') %>
+        </div>
+        <script>
+            function timeOnClick(time) {
+                const elementId = `Time${time}`;
+                const element = document.getElementById(elementId);
+                const state = timeMap[elementId];
+                if (state !== null && state !== undefined) {
+                    if (state) {
+                        element.style.background = '#808080';
+                    } else {
+                        element.style.background = '#56fc03';
+                    }
+                    timeMap[elementId] = !state;
+                } else {
+                    element.style.background = '#56fc03';
+                    timeMap[elementId] = true;
+                }
+            }
+            function next() {
+                const element = document.getElementById('date-picker');
+                const rawDate = element.value;
+                window.location = `/time?date=${rawDate}`;
+            }
+        </script>
+    </body>
+</html>

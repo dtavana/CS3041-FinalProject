@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <%- include('partials/head') %>
+    <head>
+        <%- include('partials/head') %>
+    </head>
     <body>
         <div class="container">
-            <%- include('partials/navbar') %> <%- include('partials/footer') %>
+            <%- include('partials/navbar') %>
+            <div class="home">
+                <h1>Welcome to When2Golf</h1>
+                <h2>
+                    Using this application, you can find partners to play golf
+                    with whenver you need to!
+                </h2>
+                <button onclick="next()">
+                    Click here to start the process
+                </button>
+            </div>
+            <%- include('partials/footer') %>
         </div>
+        <script>
+            function next() {
+                window.location = '/date';
+            }
+        </script>
     </body>
 </html>
