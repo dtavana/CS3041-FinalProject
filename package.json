@@ -5,18 +5,38 @@
     "main": "app.js",
     "private": true,
     "scripts": {
-        "dev": "node --trace-warnings src/app.js",
-        "prod": "node src/app.js",
+        "start": "npm run prod",
+        "dev": "NODE_ENV=development npm-run-all build server",
+        "prod": "NODE_ENV=production npm-run-all build server",
+        "transpile": "babel src/backend --out-dir dist-backend",
+        "clean": "rimraf dist-server",
+        "build": "npm-run-all clean transpile",
+        "server": "node dist-backend/backend.js",
         "prettier-format": "prettier --config .prettierrc 'src/**/*.js' --write",
         "lint": "eslint . --ext .js",
-        "lint-fix": "eslint . --ext .js --fix"
+        "lint-fix": "eslint . --ext .js --fix",
+        "watch:dev": "nodemon"
+    },
+    "nodemonConfig": {
+        "exec": "npm run dev",
+        "watch": [
+            "src/backend/*",
+            "src/frontend/*"
+        ]
     },
     "author": "Darian Tavana",
     "dependencies": {
+        "@babel/cli": "^7.13.16",
+        "@babel/core": "^7.14.0",
+        "@babel/preset-env": "^7.14.0",
         "body-parser": "^1.19.0",
         "dotenv": "^8.2.0",
         "ejs": "^3.1.6",
-        "express": "^4.17.1"
+        "express": "^4.17.1",
+        "nodemon": "^2.0.7",
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^3.0.2",
+        "winston": "^3.3.3"
     },
     "devDependencies": {
         "eslint": "^7.25.0",
@@ -28,5 +48,10 @@
         "lint-staged": "^10.5.4",
         "prettier": "^2.2.1",
         "prettier-eslint": "^12.0.0"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env"
+        ]
     }
 }

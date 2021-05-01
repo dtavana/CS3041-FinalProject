@@ -10,12 +10,14 @@
         "ecmaVersion": 12
     },
     "rules": {
-        "prettier/prettier": "error",
+        "prettier/prettier": "off",
         "indent": ["error", 4],
         "comma-dangle": "off",
         "no-restricted-syntax": "off",
         "operator-linebreak": "off",
         "linebreak-style": "off",
-        "consistent-return": "off"
+        "consistent-return": "off",
+        "implicit-arrow-linebreak": "off",
+        "function-paren-newline": "off"
     }
 }
