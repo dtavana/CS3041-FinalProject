@@ -1,0 +1,6 @@
+{
+    "*.{js,json}": [
+        "npm run prettier-format --",
+        "npm run lint-fix --"
+    ]
+}

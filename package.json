@@ -1,0 +1,32 @@
+{
+    "name": "final-project",
+    "version": "0.1.0",
+    "description": "Final project for CS3041",
+    "main": "app.js",
+    "private": true,
+    "scripts": {
+        "dev": "node --trace-warnings src/app.js",
+        "prod": "node src/app.js",
+        "prettier-format": "prettier --config .prettierrc 'src/**/*.js' --write",
+        "lint": "eslint . --ext .js",
+        "lint-fix": "eslint . --ext .js --fix"
+    },
+    "author": "Darian Tavana",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "dotenv": "^8.2.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "eslint": "^7.25.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-prettier": "^3.4.0",
+        "husky": "^6.0.0",
+        "lint-staged": "^10.5.4",
+        "prettier": "^2.2.1",
+        "prettier-eslint": "^12.0.0"
+    }
+}
