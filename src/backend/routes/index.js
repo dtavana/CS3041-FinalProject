@@ -1,5 +1,9 @@
 import express from 'express';
+import viewController from '../controllers/view.controller';
+import api from './api';
 
 const router = express.Router();
+router.use('/api', api);
+router.use('/', viewController);
 
 export default router;
