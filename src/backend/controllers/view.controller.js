@@ -13,6 +13,10 @@ export const date = (req, res) => {
 
 export const time = (req, res) => {
     const { date: passedDate } = req.query;
-    const passedDateObj = new Date(passedDate);
-    render(req, res, 'time', { date: passedDateObj });
+    render(req, res, 'time', { passedDate });
+};
+
+export const course = (req, res) => {
+    const { date: passedDate, time: passedTime } = req.query;
+    render(req, res, 'course', { passedDate, passedTime });
 };
