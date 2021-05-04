@@ -32,3 +32,13 @@ export const courses = (req, res) => {
     // Pull courses here
     res.status(200).send({ data: pulledCourses });
 };
+
+export const posting = (req, res) => {
+    req.app.locals.postings.push(req.body);
+    res.status(200).send({
+        data: {
+            msg: 'Succesfully saved new posting',
+            id: req.app.locals.postings.length - 1
+        }
+    });
+};

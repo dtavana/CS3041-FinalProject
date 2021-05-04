@@ -41,9 +41,22 @@
         </div>
         <script>
             function next(courseId) {
-                const course = courses[courseId];
-                const courseSerialized = $.param(course);
-                window.location = `/filter?date=<%= passedDate %>&time=<%= passedTime %>&course=${courseSerialized}`;
+                const body = JSON.stringify({
+                    data: {
+                        course,
+                        playDate: '<%= passedDate %>',
+                        skillLevel: '<%= passedSkillLevel %>',
+                        ageMinimum: '<%= passedAgeMinimum %>'
+                    }
+                });
+
+                fetch('/api/posting', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body
+                });
             }
         </script>
     </body>

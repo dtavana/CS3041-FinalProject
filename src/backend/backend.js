@@ -17,6 +17,8 @@ app.use(
     })
 );
 app.locals.logger = logger;
+// Remove once saving to DB
+app.locals.postings = [];
 app.use(routes);
 app.set('view engine', 'ejs');
 app.set('views', resolve(__dirname, '../src/frontend', 'views'));
