@@ -34,11 +34,17 @@ export const courses = (req, res) => {
 };
 
 export const posting = (req, res) => {
-    req.app.locals.postings.push(req.body);
+    req.app.locals.postings.push(req.body.data);
     res.status(200).send({
         data: {
             msg: 'Succesfully saved new posting',
             id: req.app.locals.postings.length - 1
         }
+    });
+};
+
+export const postings = (req, res) => {
+    res.status(200).send({
+        data: req.app.locals.postings
     });
 };
