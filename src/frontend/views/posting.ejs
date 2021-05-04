@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/head') %>
+        <script>
+            let course;
+            $(async function () {
+                const courseRes = await fetch(
+                    '/api/course?id=<%= passedCourse %>'
+                );
+                const courseJson = await courseRes.json();
+                course = courseJson.data;
+
+                const courseName = document.getElementById('courseName');
+                const courseAddress = document.getElementById('courseAddress');
+                const playDate = document.getElementById('playDate');
+                const skillLevel = document.getElementById('skillLevel');
+                const ageMinimum = document.getElementById('ageMinimum');
+
+                courseName.textContent = course.name;
+                courseAddress.textContent = course.address;
+                playDate.textContent = 'Play Date: <%= passedDate %>';
+                skillLevel.textContent = 'Skill Level: <%= passedSkillLevel %>';
+                ageMinimum.textContent = 'Minimum Age: <%= passedAgeMinimum %>';
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <%- include('partials/navbar') %>
+            <h1>Posting Details:</h1>
+            <div class="postingDetails">
+                <h2 id="courseName"></h2>
+                <h3 id="courseAddress"></h3>
+                <h3 id="playDate"></h3>
+                <h3 id="skillLevel"></h3>
+                <h3 id="ageMinimum"></h3>
+            </div>
+            <button onclick="next()">Create posting</button>
+            <%- include('partials/footer') %>
+        </div>
+        <script>
+            function next(courseId) {
+                const course = courses[courseId];
+                const courseSerialized = $.param(course);
+                window.location = `/filter?date=<%= passedDate %>&time=<%= passedTime %>&course=${courseSerialized}`;
+            }
+        </script>
+    </body>
+</html>

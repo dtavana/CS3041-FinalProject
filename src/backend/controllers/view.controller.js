@@ -20,3 +20,29 @@ export const course = (req, res) => {
     const { date: passedDate, time: passedTime } = req.query;
     render(req, res, 'course', { passedDate, passedTime });
 };
+
+export const filter = (req, res) => {
+    const {
+        date: passedDate,
+        time: passedTime,
+        course: passedCourse
+    } = req.query;
+    render(req, res, 'filter', { passedDate, passedTime, passedCourse });
+};
+
+export const posting = (req, res) => {
+    const {
+        date: passedDate,
+        time: passedTime,
+        course: passedCourse,
+        skillLevel: passedSkillLevel,
+        ageMinimum: passedAgeMinimum
+    } = req.query;
+    render(req, res, 'posting', {
+        passedDate,
+        passedTime,
+        passedCourse,
+        passedSkillLevel,
+        passedAgeMinimum
+    });
+};

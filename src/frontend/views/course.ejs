@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/head') %>
+        <script>
+            let courses = [];
+            function renderCourses() {
+                const container = document.getElementById('courses');
+                for (const course of courses) {
+                    const li = document.createElement('li');
+                    li.textContent = course.name;
+                    li.onclick = function () {
+                        next(course.id);
+                    };
+                    container.appendChild(li);
+                }
+            }
+
+            $(function () {
+                fetch('/api/courses')
+                    .then((res) => res.json())
+                    .then((data) => (courses = data.data))
+                    .then(() => renderCourses());
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <%- include('partials/navbar') %>
+            <h1>Please select the course you would like to play at</h1>
+            <ul class="courses" id="courses"></ul>
+            <%- include('partials/footer') %>
+        </div>
+        <script>
+            function next(courseId) {
+                window.location = `/filter?date=<%= passedDate %>&time=<%= passedTime %>&course=${courseId}`;
+            }
+        </script>
+    </body>
+</html>

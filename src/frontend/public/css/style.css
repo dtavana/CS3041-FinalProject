@@ -15,3 +15,7 @@
 .timeContainer {
     display: flex;
 }
+
+.courses {
+    list-style: none;
+}

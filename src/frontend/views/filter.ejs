@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/head') %>
+    </head>
+    <body>
+        <div class="container">
+            <%- include('partials/navbar') %>
+            <h1>Please select the filters you would like to use</h1>
+            <label for="skillLevel">Skill Level:</label>
+            <select id="skillLevel">
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Expert</option>
+            </select>
+            <label for="ageMinimum">Minimum age:</label>
+            <input type="number" id="ageMinimum" />
+            <button onclick="next()">Next</button>
+            <%- include('partials/footer') %>
+        </div>
+        <script>
+            function next() {
+                const skillLevel = document.getElementById('skillLevel');
+                const ageMinimum = document.getElementById('ageMinimum');
+                window.location = `/posting?date=<%= passedDate %>&time=<%= passedTime %>&course=<%= passedCourse %>&skillLevel=${skillLevel.value}&ageMinimum=${ageMinimum.value}`;
+            }
+        </script>
+    </body>
+</html>
