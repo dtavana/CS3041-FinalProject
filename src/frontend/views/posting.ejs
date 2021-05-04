@@ -45,6 +45,7 @@
                     data: {
                         course,
                         playDate: '<%= passedDate %>',
+                        playTime: '<%= passedTime %>',
                         skillLevel: '<%= passedSkillLevel %>',
                         ageMinimum: '<%= passedAgeMinimum %>'
                     }
@@ -56,7 +57,7 @@
                         'Content-Type': 'application/json'
                     },
                     body
-                });
+                }).then(() => (window.location = '/home'));
             }
         </script>
     </body>
