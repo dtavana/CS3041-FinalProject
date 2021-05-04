@@ -25,7 +25,11 @@ const pulledCourses = [
 export const course = (req, res) => {
     // Pull courses here
     const { id: courseId } = req.query;
-    res.status(200).send({ data: pulledCourses[courseId] });
+    if (!courseId) {
+        res.status(400).send({ data: { msg: 'Invalid query parameters' } });
+    } else {
+        res.status(200).send({ data: pulledCourses[courseId] });
+    }
 };
 
 export const courses = (req, res) => {
@@ -34,13 +38,17 @@ export const courses = (req, res) => {
 };
 
 export const posting = (req, res) => {
-    req.app.locals.postings.push(req.body.data);
-    res.status(200).send({
-        data: {
-            msg: 'Succesfully saved new posting',
-            id: req.app.locals.postings.length - 1
-        }
-    });
+    if (!req.body) {
+        res.status(400).send({ data: { msg: 'Invalid body' } });
+    } else {
+        req.app.locals.postings.push(req.body.data);
+        res.status(200).send({
+            data: {
+                msg: 'Succesfully saved new posting',
+                id: req.app.locals.postings.length - 1
+            }
+        });
+    }
 };
 
 export const postings = (req, res) => {

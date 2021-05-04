@@ -13,12 +13,20 @@ export const date = (req, res) => {
 
 export const time = (req, res) => {
     const { date: passedDate } = req.query;
-    render(req, res, 'time', { passedDate });
+    if (!passedDate) {
+        res.status(400).send({ data: { msg: 'Invalid query parameters' } });
+    } else {
+        render(req, res, 'time', { passedDate });
+    }
 };
 
 export const course = (req, res) => {
     const { date: passedDate, time: passedTime } = req.query;
-    render(req, res, 'course', { passedDate, passedTime });
+    if (!passedDate || !passedTime) {
+        res.status(400).send({ data: { msg: 'Invalid query parameters' } });
+    } else {
+        render(req, res, 'course', { passedDate, passedTime });
+    }
 };
 
 export const filter = (req, res) => {
@@ -27,7 +35,11 @@ export const filter = (req, res) => {
         time: passedTime,
         course: passedCourse
     } = req.query;
-    render(req, res, 'filter', { passedDate, passedTime, passedCourse });
+    if (!passedDate || !passedTime || !passedCourse) {
+        res.status(400).send({ data: { msg: 'Invalid query parameters' } });
+    } else {
+        render(req, res, 'filter', { passedDate, passedTime, passedCourse });
+    }
 };
 
 export const posting = (req, res) => {
@@ -38,11 +50,21 @@ export const posting = (req, res) => {
         skillLevel: passedSkillLevel,
         ageMinimum: passedAgeMinimum
     } = req.query;
-    render(req, res, 'posting', {
-        passedDate,
-        passedTime,
-        passedCourse,
-        passedSkillLevel,
-        passedAgeMinimum
-    });
+    if (
+        !passedDate ||
+        !passedTime ||
+        !passedCourse ||
+        !passedSkillLevel ||
+        !passedAgeMinimum
+    ) {
+        res.status(400).send({ data: { msg: 'Invalid query parameters' } });
+    } else {
+        render(req, res, 'posting', {
+            passedDate,
+            passedTime,
+            passedCourse,
+            passedSkillLevel,
+            passedAgeMinimum
+        });
+    }
 };
