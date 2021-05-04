@@ -2,6 +2,24 @@
 <html>
     <head>
         <%- include('partials/head') %>
+        <script>
+            let postings = [];
+            function renderPostings() {
+                const container = document.getElementById('postings');
+                for (const posting of postings) {
+                    const li = document.createElement('li');
+                    li.textContent = `${posting.course.name} | ${posting.playDate}`;
+                    container.appendChild(li);
+                }
+            }
+
+            $(function () {
+                fetch('/api/postings')
+                    .then((res) => res.json())
+                    .then((data) => (postings = data.data))
+                    .then(() => renderPostings());
+            });
+        </script>
     </head>
     <body>
         <div class="container">
@@ -15,6 +33,9 @@
                 <button onclick="next()">
                     Click here to start the process
                 </button>
+                <br /><br />
+                <label for="postings">Your current postings:</label>
+                <ul class="postings" id="postings"></ul>
             </div>
             <%- include('partials/footer') %>
         </div>
