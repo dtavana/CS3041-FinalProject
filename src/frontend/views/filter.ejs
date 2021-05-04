@@ -13,6 +13,7 @@
                 <option>Intermediate</option>
                 <option>Expert</option>
             </select>
+            <br />
             <label for="ageMinimum">Minimum age:</label>
             <input type="number" id="ageMinimum" />
             <button onclick="next()">Next</button>
@@ -20,9 +21,12 @@
         </div>
         <script>
             function next() {
-                const skillLevel = document.getElementById('skillLevel');
-                const ageMinimum = document.getElementById('ageMinimum');
-                window.location = `/posting?date=<%= passedDate %>&time=<%= passedTime %>&course=<%= passedCourse %>&skillLevel=${skillLevel.value}&ageMinimum=${ageMinimum.value}`;
+                const skillLevel = document.getElementById('skillLevel').value;
+                let ageMinimum = document.getElementById('ageMinimum').value;
+                if (!ageMinimum) {
+                    ageMinimum = -1;
+                }
+                window.location = `/posting?date=<%= passedDate %>&time=<%= passedTime %>&course=<%= passedCourse %>&skillLevel=${skillLevel}&ageMinimum=${ageMinimum}`;
             }
         </script>
     </body>

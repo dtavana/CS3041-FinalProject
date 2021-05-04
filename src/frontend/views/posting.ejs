@@ -21,7 +21,12 @@
                 courseAddress.textContent = course.address;
                 playDate.textContent = 'Play Date: <%= passedDate %>';
                 skillLevel.textContent = 'Skill Level: <%= passedSkillLevel %>';
-                ageMinimum.textContent = 'Minimum Age: <%= passedAgeMinimum %>';
+                if ('<%= passedAgeMinimum %>' === '-1') {
+                    ageMinimum.textContent = 'Minimum Age: N/A';
+                } else {
+                    ageMinimum.textContent =
+                        'Minimum Age: <%= passedAgeMinimum %>';
+                }
             });
         </script>
     </head>

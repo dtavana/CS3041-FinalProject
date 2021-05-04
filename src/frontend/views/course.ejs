@@ -8,7 +8,8 @@
                 const container = document.getElementById('courses');
                 for (const course of courses) {
                     const li = document.createElement('li');
-                    li.textContent = course.name;
+                    li.textContent = `${course.name} | ${course.address}`;
+                    li.className = 'course';
                     li.onclick = function () {
                         next(course.id);
                     };

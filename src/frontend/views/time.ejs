@@ -10,7 +10,9 @@
         <div class="container">
             <%- include('partials/navbar') %>
             <div class="time">
-                <h1>Please select the times that you are available to play</h1>
+                <h1>
+                    Please select the start times that you are available to play
+                </h1>
                 <div class="timeContainer">
                     <div
                         class="timeSlot"
@@ -150,14 +152,18 @@
                 }
             }
             function next() {
-                const validTimeSlots = [];
-                for (const [elementId, state] of Object.entries(timeMap)) {
-                    if (state) {
-                        validTimeSlots.push(elementId);
+                if (Object.keys(timeMap).length < 1) {
+                    alert('Please enter at least one time to play');
+                } else {
+                    const validTimeSlots = [];
+                    for (const [elementId, state] of Object.entries(timeMap)) {
+                        if (state) {
+                            validTimeSlots.push(elementId);
+                        }
                     }
+                    const validTimeSlotsString = validTimeSlots.join(',');
+                    window.location = `/course?date=<%= passedDate %>&time=${validTimeSlotsString}`;
                 }
-                const validTimeSlotsString = validTimeSlots.join(',');
-                window.location = `/course?date=<%= passedDate %>&time=${validTimeSlotsString}`;
             }
         </script>
     </body>

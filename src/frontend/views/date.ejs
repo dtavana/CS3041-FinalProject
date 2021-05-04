@@ -18,7 +18,11 @@
             function next() {
                 const element = document.getElementById('date-picker');
                 const rawDate = element.value;
-                window.location = `/time?date=${rawDate}`;
+                if (!rawDate) {
+                    alert('Please enter a date');
+                } else {
+                    window.location = `/time?date=${rawDate}`;
+                }
             }
         </script>
     </body>
