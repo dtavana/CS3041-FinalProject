@@ -1,3 +1,14 @@
+body {
+    background-image: url('../img/background.jpg');
+    background-size: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    margin: auto;
+}
+
 .timeSlot {
     vertical-align: top;
     display: inline-block;
@@ -18,6 +29,16 @@
 
 .courses {
     list-style: none;
+}
+
+.course {
+    list-style-position: inside;
+    border: 1px solid black;
+    font-size: 20px;
+}
+
+.course:hover {
+    color: gray;
 }
 
 .postings {
