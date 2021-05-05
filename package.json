@@ -9,7 +9,7 @@
         "dev": "NODE_ENV=development npm-run-all build server",
         "prod": "NODE_ENV=production npm-run-all build server",
         "transpile": "babel src/backend --out-dir dist-backend",
-        "clean": "rimraf dist-server",
+        "clean": "rimraf dist-backend",
         "build": "npm-run-all clean transpile",
         "server": "node dist-backend/backend.js",
         "prettier-format": "prettier --config .prettierrc 'src/**/*.js' --write",
